@@ -1,3 +1,16 @@
+/*
+冒泡排序在执行过程中要进行O(n^2)次的交换
+最坏，平均时间复杂度为O(n^2)
+最优复杂度是O(n)，正序的元素，一趟就完成。
+原理：
+相邻的元素比较大小之后进行交换，
+每轮交换之后就最大的元素就在最后，所以可以缩小下一轮的交换规模，
+
+动态演示参考：
+https://visualgo.net/en/sorting
+*/
+
+
 #include "stdio.h"
 
 void bubble_sort(int arr[], int len) {
