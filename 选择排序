@@ -2,9 +2,53 @@
 选择排序
 
 原理：
+假设一个最小（或最大）元素，再与其他元素进行比较寻找出最小元素，
+放在已排序元素后面位置，以此类推。
 
+特点：
+选择排序每次交换一对元素，它们当中至少有一个将被移到其最终位置上，因此对n个元素的表进行排序总共进行至多n-1次交换。
 
 时间复杂度：
 最坏：O(n^2)
 平均：O(n^2)
 最优：O(n^2)
+
+稳定性：
+稳定
+
+演示效果：
+https://visualgo.net/en/sorting
+*/
+源代码：
+
+#include"stdio.h"
+
+void select_sort(int arr[], int len) {
+   int i, j, min, temp;
+   for(i = 0; i < len-1; i++) {
+   	     min = i;//假设第一个元素是最小元素 
+   	     for(j = i+1;j<len; j++) {
+					if(arr[j]< arr[min])
+					  {
+						 temp = arr[j];
+						 arr[j] = arr[min];
+						 arr[min] = temp;
+						}					  
+					}
+	 }
+    
+}
+	
+int main() {
+	
+     int arr[] = {2,1,9,5,3,2,1};
+     int len = (int)sizeof(arr)/sizeof(*arr);
+     select_sort(arr,len);
+     for(int i=0; i<len; i++) {
+      printf("%d ",arr[i]);
+     }
+    
+		printf("length:%d", len);	 
+   
+	 return 0;
+} 
