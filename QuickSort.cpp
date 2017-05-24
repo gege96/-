@@ -1,35 +1,25 @@
 #include "stdio.h"
 
-void bubble_sort(int arr[], int len) {
- int i, j, temp;
- for(i = 0; i < len - 1; i++)
-   for(j = 0; j < len - 1 - i; j++)
-	    if(arr[j] > arr[j + 1]) {
-			   temp = arr[j];
-			   arr[j] = arr[j + 1];
-			   arr[j + 1] = temp;
-			}	
-}
 void quick_sort(int arr[], int left, int right) {
 			int i,j,t;
-			int temp; //´æ·Å»ù×¼ÔªËØ
+			int temp; //å­˜æ”¾åŸºå‡†å…ƒç´ 
 			
 		  temp = arr[left];
 			i = left;
 		  j = right; 
 		  
-			//Êı×é´óÓÚ1Ê±ºò²Å¿ªÊ¼½»»» 
+			//æ•°ç»„å¤§äº1æ—¶å€™æ‰å¼€å§‹äº¤æ¢ 
 			if(i > j)return;
 			
 			while(i != j)
 		 {
-		 	//´ÓÓÒ²à¿ªÊ¼Ì½²â 
+		 	//ä»å³ä¾§å¼€å§‹æ¢æµ‹ 
 			while(arr[j] >= temp && j > i)
              j--;
-      //´Ó×ó²à¿ªÊ¼Ì½²â 
+      //ä»å·¦ä¾§å¼€å§‹æ¢æµ‹ 
 			while(arr[i] <= temp && j > i)
   				   i++;
-      //·¢ÏÖ±È»ù×¼ÔªËØ´óµÄºÍĞ¡µÄÔªËØ£¬½øĞĞ½»»» 
+      //å‘ç°æ¯”åŸºå‡†å…ƒç´ å¤§çš„å’Œå°çš„å…ƒç´ ï¼Œè¿›è¡Œäº¤æ¢ 
 			if(i < j)
 			{
 			 t = arr[i];
@@ -37,10 +27,10 @@ void quick_sort(int arr[], int left, int right) {
 			 arr[j] = t;
 			}		
     }
-   //»ù×¼ÔªËØºÍarr[i]½»»»Î»ÖÃ 
-   arr[left] = arr[i]; //»ù×¼ÔªËØ¹éÎ» 
+   //åŸºå‡†å…ƒç´ å’Œarr[i]äº¤æ¢ä½ç½® 
+   arr[left] = arr[i]; //åŸºå‡†å…ƒç´ å½’ä½ 
 	 arr[i] = temp; 
-	 //µİ¹é 
+	 //é€’å½’ 
 	 quick_sort(arr, left, i-1);
 	 quick_sort(arr, i+1, right);
 }
@@ -49,7 +39,7 @@ void quick_sort(int arr[], int left, int right) {
 int main() {
 int arr[] = {3, 1, 2, 5, 4, 6, 9, 7, 10};
 int len = (int)sizeof(arr)/sizeof(*arr);
-//bubble_sort(arr,len);
+
 quick_sort(arr,0,len);
 for(int i=0; i<len; i++){
  printf("%d ",arr[i]);
