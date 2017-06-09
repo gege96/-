@@ -61,7 +61,7 @@ int main() {
 int arr[] = {3, 1, 2, 5, 4, 6, 9, 7, 10};
 int len = (int)sizeof(arr)/sizeof(*arr);
 
-quick_sort(arr,0,len);
+quick_sort(arr,0,len-1);
 for(int i=0; i<len; i++){
  printf("%d ",arr[i]);
 }
