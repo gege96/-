@@ -16,6 +16,7 @@ void max_heapify(int arr[], int start, int end) {
 	int dad = start;
 	int son = dad * 2 + 1;
 	while (son <= end) { 	
+		//最小堆反过来
 	
 		if (son + 1 <= end && arr[son] < arr[son + 1]) //选择最大的子节点 
 			son++;
