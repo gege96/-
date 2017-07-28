@@ -1,27 +1,27 @@
 #include"stdio.h"
 #include"stdlib.h"
+//å †æ’å…¥å…ƒç´ æ—¶åœ¨æœ€åä½ç½®æ’å…¥ï¼Œä¸Šæµ®ï¼Œåˆ é™¤å…ƒç´ æ—¶å€™ï¼Œå°†è¦åˆ é™¤çš„å…ƒç´ ä¸æœ€åä¸€ä¸ªå…ƒç´ äº¤æ¢ï¼Œå†è°ƒæ•´
+//å·¦èŠ‚ç‚¹ 2*n+1
+//å³èŠ‚ç‚¹ 2*n+2 
 
-//×ó½Úµã 2*n+1
-//ÓÒ½Úµã 2*n+2 
-
-//½»»» 
+//äº¤æ¢ 
 void swap(int* a, int* b) {
 	int temp = *b;
 	*b = *a;
 	*a = temp;
 }
-//µ÷Õû³É×î´ó¶Ñ 
+//è°ƒæ•´æˆæœ€å¤§å † 
 void max_heapify(int arr[], int start, int end) {
 	
 	int dad = start;
 	int son = dad * 2 + 1;
 	while (son <= end) { 	
 	
-		if (son + 1 <= end && arr[son] < arr[son + 1]) //Ñ¡Ôñ×î´óµÄ×Ó½Úµã 
+		if (son + 1 <= end && arr[son] < arr[son + 1]) //é€‰æ‹©æœ€å¤§çš„å­èŠ‚ç‚¹ 
 			son++;
-		if (arr[dad] > arr[son]) //¸¸½Úµã´óÓÚ×Ó½Úµã£¬Ìø³ö´Ë´ÎÑ­»· 
+		if (arr[dad] > arr[son]) //çˆ¶èŠ‚ç‚¹å¤§äºå­èŠ‚ç‚¹ï¼Œè·³å‡ºæ­¤æ¬¡å¾ªç¯ 
 			return;
-		else { //·ñÔò½»»»¸¸×Ó½Úµã¼ÌĞø±È½Ï 
+		else { //å¦åˆ™äº¤æ¢çˆ¶å­èŠ‚ç‚¹ç»§ç»­æ¯”è¾ƒ 
 			swap(&arr[dad], &arr[son]);
 			dad = son;
 			son = dad * 2 + 1;
@@ -31,10 +31,10 @@ void max_heapify(int arr[], int start, int end) {
 
 void heap_sort(int arr[], int len) {
 	int i;
-	//³õÊ¼»¯³É×î´ó¶Ñ£¬i=n/2-1ÊÇĞòºÅ×î´óµÄ¸¸½Úµã 
+	//åˆå§‹åŒ–æˆæœ€å¤§å †ï¼Œi=n/2-1æ˜¯åºå·æœ€å¤§çš„çˆ¶èŠ‚ç‚¹ 
 	for (i = len / 2 - 1; i >= 0; i--)
 		max_heapify(arr, i, len - 1);
-	//a[1]ÒÑ¾­ÊÇ×î´óÖµ£¬½«a[1]ºÍa[n]½»»»£¬ÔÙ½øĞĞa[1]µ½a[n-1]µÄ½»»» 
+	//a[1]å·²ç»æ˜¯æœ€å¤§å€¼ï¼Œå°†a[1]å’Œa[n]äº¤æ¢ï¼Œå†è¿›è¡Œa[1]åˆ°a[n-1]çš„äº¤æ¢ 
 	for (i = len - 1; i > 0; i--) {
 		swap(&arr[0], &arr[i]);
 		max_heapify(arr, 0, i - 1);
