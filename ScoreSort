@@ -1,0 +1,56 @@
+#include <stdio.h>
+int main(void){
+	
+	typedef struct sc
+	{
+		char name[100];
+		int score;
+	}sc;
+
+	int num, sort;
+	sc sc1[1000];
+	sc scc;
+	while (scanf("%d%d", &num, &sort) != EOF){
+		for (int j = 0; j < num; j++){
+			scanf("%s%d", &sc1[j].name, &sc1[j].score);
+		}
+			if (sort == 0)
+			{
+				for (int i = 0; i < num; i++)
+				{
+					for (int k = 0; k < num-i-1; k++)
+					{
+						if (sc1[k].score < sc1[k + 1].score)
+						{
+							scc = sc1[k];
+							sc1[k] = sc1[k + 1];
+							sc1[k + 1] = scc;
+						}
+					}
+				}
+			}
+			if (sort == 1)
+			{
+				for (int i = 0; i < num; i++)
+				{
+					for (int k = 0; k < num - i - 1; k++)
+					{
+						if (sc1[k].score > sc1[k + 1].score)
+						{
+							scc = sc1[k];
+							sc1[k] = sc1[k + 1];
+							sc1[k + 1] = scc;
+						}
+					}
+				}
+			}
+
+			for (int i = 0; i < num; i++)
+			{
+				printf("%s %d\n", sc1[i].name, sc1[i].score);
+			}
+		
+	}
+	return 0;
+
+}
