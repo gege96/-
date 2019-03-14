@@ -12,14 +12,14 @@ int binary_search(int arr[], int num, int length)
 			high = mid -1;
 		else if(arr[mid] < num)
 		  low = mid + 1;
-    else{
+    		else{
 			//printf("find");
 			return mid;
 		}
 		
 	}
-		//printf("failed");
-		return -1;
+	//printf("failed");
+	return -1;
 }
 	
 int main(){
